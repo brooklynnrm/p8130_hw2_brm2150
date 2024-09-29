@@ -11,14 +11,83 @@ This document if for the Homework Assignment #2 for Biostatistical Methods 1.
 
 The probability of having at least 1 dental checkup in a two-year period is 73%. 56 random individuals are participating in a study.
 
-lamda = 0.73
+a.  What is the probability of exactly 40 people having at least 1 dental checkup?
 
-a.  What is the probability of exactly 40 people having at least 1 dental checkup.
+Use the probability mass function (pmf) for a binomial distribution.
+
+n = 56 (number of trials)
+
+k = 40 (number of successes)
+
+p = 0.73 (probability of success)
+
+P(X = k) = (n k)p^k^ (1-p)^n-k^
+
+(n k) = n! / (k!(n-k)!) = 56!/(40!(56-40)! = 56!/(40! x 16!)
+
+P(X = k) = 56!/(40! x 16!) x 0.73^40^ x (1-0.73)^(56-40)^
+
+P(X = k) = **0.1133 or 11.33%** chance that exactly 40 people will get at least 1 dental checkup in the next 2 years.
 
 b.  what is the probability of at least 40 people having at least 1 dental checkup.
 
 ```{r}
+# P(X>=40) = 1 - P(X<40)
 
+n = 56
+p = 0.73
+k = 39
+
+X = (1 - dbinom(k, n, p))
+
+X
+```
+
+c\. Since the number of trials is large and the probability of success is high, we can use a normal distribution to approximate the probabilities from above.
+
+```{r}
+# normal approximation for part a
+n = 56
+p = 0.73  
+mu <- n * p
+sigma = sqrt(n * p * (1 - p))
+
+exact_40 = pnorm(40, mean = mu, sd = sigma)
+
+exact_40
+
+# normal approximation for part b
+
+at_least_40 = 1 - pnorm(39, mean = mu, sd = sigma)
+
+at_least_40
+
+```
+
+d\. How many participants are expected have at least 1 checkup?
+
+```{r}
+# use the expected value formula
+
+n = 56
+p = 0.73
+
+exp_val = n*p
+
+exp_val
+```
+
+e\. What is the standard deviation of people that will have at least 1 checkup.
+
+```{r}
+n = 56
+p = 0.73
+
+sd_x = sqrt(
+  (n * p)*(1 - p)
+)
+
+sd_x
 ```
 
 ## Problem 2
