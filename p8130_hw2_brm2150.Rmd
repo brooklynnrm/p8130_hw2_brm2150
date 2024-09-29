@@ -92,6 +92,47 @@ sd_x
 
 ## Problem 2
 
+The number of tornadoes in the United States follows a poisson distribution with lambda = 6 (tornadoes per year).
+
+a\. What is the probability of having fewer than 3 tornadoes next year?
+
+probability mass function for poisson distribution:
+
+Y = lambda
+
+P(X = k) = (Y^k^ e^-Y^ )/k!
+
+```{r}
+
+lambda = 6
+
+torn0 = dpois(0, lambda = lambda)
+torn1 = dpois(1, lambda = lambda)
+torn2 = dpois(2, lambda = lambda)
+
+torn0 + torn1 + torn2
+```
+
+b\. What is the probability of having exactly 3 tornadoes next year?
+
+```{r}
+k = 3
+lambda = 6
+
+torn3 = dpois(k, lambda = lambda)
+
+torn3
+```
+
+c\. What is the probability of having more than 3 tornadoes next year?
+
+```{r}
+# P(X) = P(1-P(k))
+# 1 - P(3 or less tornadoes ocurring)
+
+1 - (torn0+torn1+torn2+torn3)
+```
+
 ## Problem 3
 
 ## Problem 4
