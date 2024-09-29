@@ -1,0 +1,28 @@
+---
+title: "p8130_hw2_brm2150"
+author: "Brooklynn McNeil"
+date: "2024-09-29"
+output: html_document
+---
+
+This document if for the Homework Assignment #2 for Biostatical Methods 1.
+
+## Problem 1
+
+The probability of having at least 1 dental checkup in a two-year period is 73%. 56 random individuals are participating in a study. 
+
+lamda = 0.73
+
+a. What is the probability of exactly 40 people having at least 1 dental checkup.
+
+b. what is the probability of at least 40 people having at least 1 dental checkup.
+```{r}
+
+```
+
+
+## Problem 2
+
+## Problem 3
+
+## Problem 4
