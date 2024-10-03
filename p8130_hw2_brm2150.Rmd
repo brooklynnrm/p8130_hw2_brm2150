@@ -43,7 +43,7 @@ X = (1 - dbinom(k, n, p))
 X
 ```
 
-c\. Since the number of trials is large and the probability of success is high, we can use a normal distribution to approximate the probabilities from above.
+c.  Since the number of trials is large and the probability of success is high, we can use a normal distribution to approximate the probabilities from above.
 
 ```{r}
 # normal approximation for part a
@@ -134,5 +134,50 @@ c\. What is the probability of having more than 3 tornadoes next year?
 ```
 
 ## Problem 3
+
+Systolic blood pressure for men 20-29 years old in the US is normally distributed. The population mean in 128.0 and the standard deviation is 10.2
+
+a\. The probability that a randomly selected American male 20-29 yrs has systolic blood pressure above 137.0 can be solved with the normal distribution probability function.
+
+P(X \> 137.0)
+
+```{r}
+mu = 128.0
+sigma = 10.2
+q = 137.0
+
+p_sysbp_137 = pnorm(q, mean = mu, sd = sigma, lower.tail = FALSE)
+
+p_sysbp_137
+```
+
+b. The probability that the sample mean for the blood pressure of 50 males will be less than 125.0 is performed by first calculating the standard error and using that in the normal distribution probability function.
+
+```{r}
+mu = 128.0
+sigma = 10.2
+n = 50
+q = 125.0 
+
+std_err = sigma/sqrt(n)
+
+p_sysbp_125 = pnorm(q, mean = mu, sd = std_err, lower.tail = TRUE)
+
+p_sysbp_125
+```
+
+c\. The 90th percentile of the sampling distribution of size n = 40
+
+```{r}
+mu = 128.0
+sigma = 10.2
+n = 40
+p = 0.90
+
+std_err = sigma/sqrt(n)
+
+pct_90 = qnorm(p, mean = mu, sd = std_err)
+pct_90
+```
 
 ## Problem 4
